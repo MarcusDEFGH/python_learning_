@@ -10,6 +10,6 @@ print(str_current_datetime)
 file_name = f'{str_current_datetime}.py'
 file = open(file_name, 'w')
 
-print(f'File \033[7;93m{file.name}\033[m created successfully')
+print(f'File \033[7;93m{file.name}\033[m created succeSssfully')
 file.close()
 
