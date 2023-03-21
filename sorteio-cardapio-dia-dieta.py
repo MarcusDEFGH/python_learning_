@@ -11,21 +11,42 @@ dias_semana = ['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']
 
 menu_semana = []
 menu_dia = []
+
+opcoes = cafe, lanche_manha, almoco, lanche_tarde, jantar
+
 #https://datatofish.com/dictionary-values-as-list/
 # codigos = list(refeicoes_dia.keys())
 
+print(opcoes[1])
 
-#consegui. a iteração desejada na ordem certa.
+#ASSIM NAO RETORNA O CODIGO SEGUIDO POR UMA OPCAO DE REFEIÇAO CORRESPONDENTE AO CODIGO (o sorteio deve ser sempre de
+# algum dos almoços após o código 'A', alguma opçao de lanche da tarde após o código 'LT:' e assim sucessivamente, da
+# segunda até o domingo
+
+
 for dia in dias_semana:
     menu_dia.append(f'{dia}:'.upper())
+
     for cod in refeicoes_do_dia.keys():
-        menu_dia.append(f'{cod}:')
-        for refeicao in refeicoes_do_dia.values():
-            refeicao_sorteada = random.sample(refeicao, 1)
-        menu_dia.append(refeicao_sorteada)
+        i = 0
+        menu_dia.append(f'{cod}: {random.choice(opcoes[i])}')
+        i += 1
 
 
 print(menu_dia)
+
+
+#-------------------------------------------#ASSIM DEU CERTOOOOOOOOOOO!!!!! FINALMENTE
+for dia in dias_semana:
+    menu_dia.append(f'{dia}:'.upper())
+    i = 0
+
+    for cod in refeicoes_do_dia.keys():
+        menu_dia.append(f'{cod}: {random.choice(opcoes[i])}')
+        i += 1
+print(menu_dia)
+#-----------------------------------------------------------------------------
+
 
 
 
