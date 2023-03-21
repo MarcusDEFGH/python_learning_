@@ -17,24 +17,27 @@ opcoes = cafe, lanche_manha, almoco, lanche_tarde, jantar
 #https://datatofish.com/dictionary-values-as-list/
 # codigos = list(refeicoes_dia.keys())
 
-print(opcoes[1])
 
 #ASSIM NAO RETORNA O CODIGO SEGUIDO POR UMA OPCAO DE REFEIÇAO CORRESPONDENTE AO CODIGO (o sorteio deve ser sempre de
 # algum dos almoços após o código 'A', alguma opçao de lanche da tarde após o código 'LT:' e assim sucessivamente, da
 # segunda até o domingo
 
 
-for dia in dias_semana:
-    menu_dia.append(f'{dia}:'.upper())
 
-    for cod in refeicoes_do_dia.keys():
-        i = 0
-        menu_dia.append(f'{cod}: {random.choice(opcoes[i])}')
-        i += 1
+# ---------abaixo, imediatamente antes de eu conseguir fazer na ordem certa:
 
+# for dia in dias_semana:
+#     menu_dia.append(f'{dia}:'.upper())
+#
+#     for cod in refeicoes_do_dia.keys():
+#         i = 0
+#         menu_dia.append(f'{cod}: {random.choice(opcoes[i])}')
+#         i += 1
+#
+#
+# print(menu_dia)
 
-print(menu_dia)
-
+#-------------
 
 #-------------------------------------------#ASSIM DEU CERTOOOOOOOOOOO!!!!! FINALMENTE
 for dia in dias_semana:
@@ -42,7 +45,8 @@ for dia in dias_semana:
     i = 0
 
     for cod in refeicoes_do_dia.keys():
-        menu_dia.append(f'{cod}: {random.choice(opcoes[i])}')
+        ref_sorteada = f'{cod}: {random.choice(opcoes[i])}     '
+        menu_dia.append(ref_sorteada)
         i += 1
 print(menu_dia)
 #-----------------------------------------------------------------------------
