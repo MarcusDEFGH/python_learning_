@@ -6,32 +6,52 @@ almoco = ['macarrao+frango', 'pure', 'papa', 'crepioca', 'feijao e arroz', 'esco
 lanche_tarde = ["vitam ban/mam", "fruta c/ acomp", "yopro c/ acomp", "beb whey c/acomp", "overnight oats", "panqueca geleia"]
 jantar  = ['cuscuz c/ ovo', 'bolinho batata airfryer', 'tapioca', 'papa', 'sanduiche']
 
-refeicoes_dia = cafe, lanche_manha, almoco, lanche_tarde, jantar
+refeicoes_do_dia = {'C': cafe, 'LM': lanche_manha, 'A': almoco, 'LT': lanche_tarde, 'J': jantar}
 dias_semana = ['seg', 'ter', 'qua', 'qui', 'sex', 'sab', 'dom']
+
+menu_semana = []
+menu_dia = []
+#https://datatofish.com/dictionary-values-as-list/
+# codigos = list(refeicoes_dia.keys())
+
 
 #consegui. a iteração desejada na ordem certa.
 for dia in dias_semana:
-    menu_dia = []
-    for ref in refeicoes_dia:
-        ref_sorteada = random.sample(ref, 1)[0]
-        menu_dia.append(ref_sorteada)
+    menu_dia.append(f'{dia}:'.upper())
+    for cod in refeicoes_do_dia.keys():
+        menu_dia.append(f'{cod}:')
+        for refeicao in refeicoes_do_dia.values():
+            refeicao_sorteada = random.sample(refeicao, 1)
+        menu_dia.append(refeicao_sorteada)
+
+
+print(menu_dia)
+
+
+
     # print(
     #     f'\033[94m{dia}\033[m:')
     # for a in range(5):
     #         print(f'{menu_dia[a]}')
+    # print(f'\033[7;93m---------{dia}\033[m:\n   {menu_dia[0]},{menu_dia[1]},{menu_dia[2]},{menu_dia[3]},{menu_dia[4]}')
+    #
+    # for refeicao in range(0,6):
+    #     for codigo in refeicoes_dia.keys():
+    #         print(f'{codigo}: {menu_dia[refeicao]}')
+    #         refeicao += 1
 
-    #como fazer isso abaixo com list comprehension e com for loop pra essa parte de 'pegar' só o item str
-    # (formatado bonitinho, sem " ou [ de cada refeiçao?
-    print(f'\033[94m{dia}\033[m:{menu_dia[0]}, {menu_dia[1]}, {menu_dia[2]}, {menu_dia[3]}, {menu_dia[4]}')
+
 
     #tentando mesmo resultado através de  list comprehension: e com for loop pra essa parte de 'pegar' só o item str
     # (formatado bonitinho, sem " ou [ de cada refeiçao?
 
-for dia in dias_semana:
-    menu_dia = [
-        (f'\033[94m{dia}\033[m:'
-         f'{refs_sorteadas}' for random.sample(refeicao, 1) for refeicao in refeicoes_dia)
-    ]
+
+# menu = [
+#     f'{dia}: {random.sample(ref, 1)}' for dia in dias_semana for ref in refeicoes_dia.values()
+#         ]
+
+
+# print(menu)
     # for ref in refeicoes_dia:
     #     ref_sorteada = random.sample(ref, 1)[0]
     #     menu_dia.append(ref_sorteada)
